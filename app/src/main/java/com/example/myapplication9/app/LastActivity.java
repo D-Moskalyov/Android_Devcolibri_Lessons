@@ -5,19 +5,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-
-public class MainActivity extends Activity {
+public class LastActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_layout);
+        setContentView(R.layout.last_layout);
 
     }
 
-    public void goToNewActivity(View view){
-        Intent intent = new Intent(this, LastActivity.class);
+    public void onBack(View view){
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-
 }

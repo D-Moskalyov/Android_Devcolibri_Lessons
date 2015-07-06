@@ -7,6 +7,6 @@
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Go to new activity"
-            android:id="@+id/button" android:layout_gravity="center_horizontal" android:onClick="goToNewActivity"/>
+            android:text="Back"
+            android:id="@+id/button2" android:layout_gravity="center_horizontal" android:onClick="onBack"/>
 </LinearLayout>
