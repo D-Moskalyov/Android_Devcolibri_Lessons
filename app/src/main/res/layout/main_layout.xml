@@ -8,6 +8,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Hello, World"
+            android:text="@string/hello_world"
             android:id="@+id/textView" android:layout_gravity="center_horizontal"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_text"
+            android:id="@+id/button" android:layout_gravity="center_horizontal" android:onClick="seyHello"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_text2"
+            android:id="@+id/button2" android:layout_gravity="center_horizontal"/>
 </LinearLayout>
