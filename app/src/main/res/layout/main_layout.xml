@@ -4,10 +4,26 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <Button
+    <TextView
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/textView" android:layout_gravity="center_horizontal"/>
+    <Button
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="New Button"
             android:id="@+id/button" android:layout_gravity="center_horizontal" android:nestedScrollingEnabled="false"
-            android:onClick="onShow"/>
+            android:onClick="onPosition"/>
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Button"
+            android:id="@+id/button3" android:layout_gravity="center_horizontal"/>
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Button"
+            android:id="@+id/button4" android:layout_gravity="center_horizontal"/>
 </LinearLayout>

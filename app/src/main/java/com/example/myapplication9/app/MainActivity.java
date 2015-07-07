@@ -1,6 +1,8 @@
 package com.example.myapplication9.app;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -16,12 +18,16 @@ public class MainActivity extends Activity {
         setContentView(R.layout.main_layout);
     }
 
-    public void onShow(View view){
-        Toast toast = Toast.makeText(getApplicationContext(), "Privet", Toast.LENGTH_LONG);
-        toast.setGravity(Gravity.CENTER, 0, 0);
-        toast.show();
-//        Toast.makeText(this, "Привет", Toast.LENGTH_LONG).show();
+    public void onPosition(View view){
+        Context context = getApplicationContext();
+        Configuration configuration = getResources().getConfiguration();
 
+        if(configuration.orientation == Configuration.ORIENTATION_PORTRAIT){
+            Toast.makeText(context, "ORIENTATION_PORTRAIT", Toast.LENGTH_SHORT).show();
+        }
+        if(configuration.orientation == Configuration.ORIENTATION_LANDSCAPE){
+            Toast.makeText(context, "ORIENTATION_LANDSCAPE", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }
