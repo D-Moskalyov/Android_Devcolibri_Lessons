@@ -8,26 +8,7 @@
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Presented"
-            android:id="@+id/btnPresented" android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" android:layout_marginTop="88dp" android:onClick="onShow"/>
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Hay! What is your name?"
-            android:id="@+id/txtName" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"/>
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Your language is unknown"
-            android:id="@+id/txtLang" android:layout_below="@+id/txtName" android:layout_centerHorizontal="true"/>
-    <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Choose language"
-            android:id="@+id/btnChooseLang"
-            android:layout_alignTop="@+id/btnPresented" android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" android:onClick="onShow"/>
+            android:text="New Button"
+            android:id="@+id/button" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"
+            android:onClick="showDialog"/>
 </RelativeLayout>
