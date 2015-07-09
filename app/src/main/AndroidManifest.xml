@@ -12,7 +12,19 @@
             android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".CurrentDateActivity"
+            android:label="@string/title_activity_current_date" >
+        </activity>
+        <activity
+            android:name=".SiteActivity"
+            android:label="@string/title_activity_site" >
+            <intent-filter>
+                <action android:name="com.example.myapplication9.app.SiteActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>

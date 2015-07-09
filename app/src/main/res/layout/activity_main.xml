@@ -11,29 +11,25 @@
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Info"
-            android:id="@+id/button"
-            android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" android:onClick="onInfoLog"/>
+            android:text="@string/explicit_call"
+            android:onClick="explicitCall"
+            android:id="@+id/button" android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Warn"
-            android:id="@+id/button2"
-            android:layout_alignParentTop="true" android:layout_toRightOf="@+id/button"
-            android:layout_toEndOf="@+id/button" android:onClick="onWarnLog"/>
+            android:text="@string/implicit_call"
+            android:onClick="implicitCall"
+            android:id="@+id/button2" android:layout_below="@+id/button" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Error"
-            android:id="@+id/button3"
-            android:layout_alignParentTop="true" android:layout_toLeftOf="@+id/button4"
-            android:layout_toStartOf="@+id/button4" android:onClick="onErrorLog"/>
-    <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Debug"
-            android:id="@+id/button4"
-            android:layout_alignParentTop="true" android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" android:onClick="onDebugLog"/>
-    </RelativeLayout>
+            android:text="@string/openContacts"
+            android:onClick="openContacts"
+            android:id="@+id/button3" android:layout_below="@+id/button2" android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+</RelativeLayout>

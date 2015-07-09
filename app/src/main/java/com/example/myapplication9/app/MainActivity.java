@@ -1,5 +1,7 @@
 package com.example.myapplication9.app;
 
+import android.content.ComponentName;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,29 +12,26 @@ import android.view.View;
 
 public class MainActivity extends ActionBarActivity {
 
-    private final String TAG = "DEV";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
 
-    public void onInfoLog(View view){
-        Log.i(TAG, "Info Level");
+    public void explicitCall(View view){
+        Intent intent = new Intent(getApplicationContext(), CurrentDateActivity.class);
+        startActivity(intent);
     }
 
-    public void onWarnLog(View view){
-        Log.w(TAG, "Warn Level");
+    public void implicitCall(View view){
+        Intent intent = new Intent("com.example.myapplication9.app.SiteActivity");
+        startActivity(intent);
     }
 
-    public void onErrorLog(View view){
-        Log.e(TAG, "Error Level");
-    }
-
-    public void onDebugLog(View view){
-        Log.d(TAG, "Debug Level");
-        Log.v(TAG, "Verbose Level");
-        Log.wtf(TAG, "WTF Level");
+    public void openContacts(View view){
+        Intent intent = new Intent();
+        intent.setComponent(new ComponentName("com.android.contacts", "com.android.contacts.DialtactsContactsEntryActivity"));
+        startActivity(intent);
     }
 
 }
