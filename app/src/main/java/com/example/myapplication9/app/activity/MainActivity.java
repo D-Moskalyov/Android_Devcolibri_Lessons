@@ -1,14 +1,9 @@
 package com.example.myapplication9.app.activity;
 
-import POJO.PhoneModel;
-import adapter.PhoneModelAdapter;
-import android.support.annotation.NonNull;
+import com.example.myapplication9.app.POJO.PhoneModel;
+import com.example.myapplication9.app.adapter.PhoneModelAdapter;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import com.example.myapplication9.app.R;
 

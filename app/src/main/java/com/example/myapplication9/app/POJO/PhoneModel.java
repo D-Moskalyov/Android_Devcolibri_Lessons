@@ -1,4 +1,4 @@
-package POJO;
+package com.example.myapplication9.app.POJO;
 
 public class PhoneModel {
 

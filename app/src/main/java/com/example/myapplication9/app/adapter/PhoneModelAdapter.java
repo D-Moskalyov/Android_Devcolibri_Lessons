@@ -1,6 +1,6 @@
-package adapter;
+package com.example.myapplication9.app.adapter;
 
-import POJO.PhoneModel;
+import com.example.myapplication9.app.POJO.PhoneModel;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
