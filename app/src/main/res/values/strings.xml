@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">MyApplication9</string>
+    <string name="title_activity_main">Log</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 
 </resources>
