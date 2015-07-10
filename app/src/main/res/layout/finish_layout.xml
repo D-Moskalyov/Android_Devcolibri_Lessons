@@ -4,9 +4,10 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <Button
+    <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Показать уведомление"
-            android:id="@+id/button" android:layout_gravity="center_horizontal" android:onClick="showNotification"/>
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Finish Layout"
+            android:id="@+id/textView" android:layout_gravity="center_horizontal"/>
 </LinearLayout>
