@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Показать уведомление"
-            android:id="@+id/button" android:layout_gravity="center_horizontal" android:onClick="showNotification"/>
-    <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Отменить"
-            android:id="@+id/button2"
-            android:layout_gravity="center_horizontal"
-            android:onClick="cancelNotification"/>
+
+    <fragment android:name="com.example.myapplication9.app.ButtonFragment"
+              android:id="@+id/button_fragment"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              tools:layout="@layout/button_layout"/>
+
+    <fragment android:name="com.example.myapplication9.app.ImageFragment"
+              android:id="@+id/image_fragment"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              tools:layout="@layout/image_layout"/>
+
 </LinearLayout>
