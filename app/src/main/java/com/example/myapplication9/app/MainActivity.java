@@ -1,37 +1,49 @@
 package com.example.myapplication9.app;
 
-import android.content.ComponentName;
-import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.Toast;
+import com.example.myapplication9.app.R;
 
+import java.util.*;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main_layout);
+
     }
 
-    public void explicitCall(View view){
-        Intent intent = new Intent(getApplicationContext(), CurrentDateActivity.class);
-        startActivity(intent);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_items, menu);
+        return true;
     }
 
-    public void implicitCall(View view){
-        Intent intent = new Intent("com.example.myapplication9.app.SiteActivity");
-        startActivity(intent);
+    public void onAbout(MenuItem item){
+        Toast.makeText(this, "об авторе", Toast.LENGTH_SHORT).show();
     }
 
-    public void openContacts(View view){
-        Intent intent = new Intent();
-        intent.setComponent(new ComponentName("com.android.contacts", "com.android.contacts.DialtactsContactsEntryActivity"));
-        startActivity(intent);
-    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.settings:
+                Toast.makeText(this, "Вы выбралм настройки", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.about:
+                Toast.makeText(this, "Вы выбралм об авторе", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.site:
+                Toast.makeText(this, "Вы выбралм настройки", Toast.LENGTH_SHORT).show();
+                break;
+            default:break;
+        }
 
+        return true;
+    }
 }
