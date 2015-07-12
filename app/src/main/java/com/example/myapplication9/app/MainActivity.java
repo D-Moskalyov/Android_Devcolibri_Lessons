@@ -25,16 +25,17 @@ public class MainActivity extends FragmentActivity {
 
         manager = getSupportFragmentManager();
 
-        oneFragment = new One();
-        twoFragment = new Two();
+        //twoFragment = new Two();
     }
 
     public void onClickFragment(View view){
+
         transaction = manager.beginTransaction();
 
         switch (view.getId()){
 
             case R.id.btnAdd:
+                oneFragment = new One();
                 transaction.add(R.id.container, oneFragment);
                 break;
 
