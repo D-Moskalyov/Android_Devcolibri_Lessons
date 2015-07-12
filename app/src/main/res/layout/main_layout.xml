@@ -14,19 +14,40 @@
             android:id="@+id/linearLayout">
 
         <Button
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/add_button"
                 android:id="@+id/btnAdd"
+                android:layout_weight="1"
+                android:onClick="onClickFragment"/>
+        <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/remove_button"
+                android:layout_weight="1"
+                android:id="@+id/btnRemove"
+                android:onClick="onClickFragment"/>
+        <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/replace_button"
+                android:layout_weight="1"
+                android:id="@+id/btnReplace"
                 android:onClick="onClickFragment"/>
     </LinearLayout>
 
+    <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Switch"
+            android:id="@+id/switchBackStack"
+            android:layout_below="@+id/linearLayout"/>
     <LinearLayout
             android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_below="@+id/linearLayout">
+            android:layout_below="@+id/switchBackStack">
 
     </LinearLayout>
 

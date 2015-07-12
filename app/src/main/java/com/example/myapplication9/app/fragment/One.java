@@ -10,6 +10,9 @@ import com.example.myapplication9.app.R;
 
 
 public class One extends Fragment {
+
+    public final static String TAG = "One fragment tag";
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

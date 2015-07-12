@@ -11,6 +11,8 @@ import com.example.myapplication9.app.R;
 
 public class Two extends Fragment {
 
+    public final static String TAG = "Two fragment tag";
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
