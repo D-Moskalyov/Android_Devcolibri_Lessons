@@ -7,5 +7,8 @@
     <string name="item_settings">Настройки</string>
     <string name="item_about">Об авторе</string>
     <string name="item_site">Оф. сайт</string>
+    <string name="add_button">Добавить</string>
+    <string name="st1_fragment">Первый Фрагмент</string>
+    <string name="st2_fragment">Второй фрагмент</string>
 
 </resources>
