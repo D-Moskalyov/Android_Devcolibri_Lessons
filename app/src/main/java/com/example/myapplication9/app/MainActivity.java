@@ -1,71 +1,66 @@
 package com.example.myapplication9.app;
 
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.os.SystemClock;
 import android.view.View;
-import android.widget.Switch;
-import com.example.myapplication9.app.fragment.One;
-import com.example.myapplication9.app.fragment.Two;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.example.myapplication9.app.R;
 
+public class MainActivity extends Activity {
 
-public class MainActivity extends FragmentActivity {
-
-    private One oneFragment;
-    private Two twoFragment;
-
-    private FragmentManager manager;
-    private FragmentTransaction transaction;
-
-    private Switch isBackStack;
+    private ProgressBar progressBar;
+    private TextView txtState;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_layout);
+        setContentView(R.layout.activity_main);
 
-        manager = getSupportFragmentManager();
-
-        oneFragment = new One();
-        twoFragment = new Two();
-
-        isBackStack = (Switch)findViewById(R.id.switchBackStack);
+        progressBar = (ProgressBar)findViewById(R.id.progressBar);
+        txtState = (TextView)findViewById(R.id.txtStatete);
     }
 
-    public void onClickFragment(View view){
+    public void onProgressButton(View view){
+        new MyProgressBarAsyncTask().execute();
+    }
 
-        transaction = manager.beginTransaction();
+    class MyProgressBarAsyncTask extends AsyncTask<Void, Integer, Void>{
 
-        switch (view.getId()){
+        private int progressBarValue = 0;
 
-            case R.id.btnAdd:
-                if(manager.findFragmentByTag(One.TAG) == null)
-                    transaction.add(R.id.container, oneFragment, One.TAG);
-                break;
-
-            case R.id.btnRemove:
-                if(manager.findFragmentByTag(One.TAG) != null)
-                    transaction.remove(oneFragment);
-                if(manager.findFragmentByTag(Two.TAG) != null)
-                    transaction.remove(twoFragment);
-                break;
-            case R.id.btnReplace:
-                if(manager.findFragmentByTag(One.TAG) != null)
-                    transaction.replace(R.id.container, twoFragment, Two.TAG);
-                if(manager.findFragmentByTag(Two.TAG) != null)
-                    transaction.replace(R.id.container, oneFragment, One.TAG);
-                break;
-
-            default:break;
-
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            Toast.makeText(MainActivity.this, "Процесс окончен", Toast.LENGTH_SHORT).show();
         }
 
-        if(isBackStack.isChecked())
-            transaction.addToBackStack(null);
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            Toast.makeText(MainActivity.this, "Начало процесса", Toast.LENGTH_SHORT).show();
+        }
 
-        transaction.commit();
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
+
+            progressBar.setProgress(values[0]);
+            txtState.setText(values[0] + "%");
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            while (progressBarValue < 100) {
+                progressBarValue++;
+                publishProgress(progressBarValue);
+                SystemClock.sleep(200);
+            }
+            return null;
+        }
     }
 
 }
