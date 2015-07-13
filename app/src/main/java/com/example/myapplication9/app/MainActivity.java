@@ -10,56 +10,49 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.example.myapplication9.app.R;
 
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+
 public class MainActivity extends Activity {
 
-    private ProgressBar progressBar;
-    private TextView txtState;
+    MyAsyncTask task;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        progressBar = (ProgressBar)findViewById(R.id.progressBar);
-        txtState = (TextView)findViewById(R.id.txtStatete);
+        task = new MyAsyncTask();
     }
 
-    public void onProgressButton(View view){
-        new MyProgressBarAsyncTask().execute();
+    public void onShowMessage(View view) throws ExecutionException, InterruptedException {
+
+        task.execute();
+        String text = null;
+        try {
+            text = task.get(2, TimeUnit.SECONDS);
+            Toast.makeText(MainActivity.this, text, Toast.LENGTH_SHORT).show();
+        } catch (TimeoutException e) {
+            Toast.makeText(MainActivity.this, "Not response", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
-    class MyProgressBarAsyncTask extends AsyncTask<Void, Integer, Void>{
+    class MyAsyncTask extends AsyncTask<Void, Void, String>{
 
         private int progressBarValue = 0;
 
         @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-            Toast.makeText(MainActivity.this, "Процесс окончен", Toast.LENGTH_SHORT).show();
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
         }
 
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            Toast.makeText(MainActivity.this, "Начало процесса", Toast.LENGTH_SHORT).show();
-        }
 
         @Override
-        protected void onProgressUpdate(Integer... values) {
-            super.onProgressUpdate(values);
-
-            progressBar.setProgress(values[0]);
-            txtState.setText(values[0] + "%");
-        }
-
-        @Override
-        protected Void doInBackground(Void... params) {
-            while (progressBarValue < 100) {
-                progressBarValue++;
-                publishProgress(progressBarValue);
-                SystemClock.sleep(200);
-            }
-            return null;
+        protected String doInBackground(Void... params) {
+            SystemClock.sleep(3000);
+            return "Hello";
         }
     }
 

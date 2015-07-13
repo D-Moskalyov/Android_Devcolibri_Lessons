@@ -25,8 +25,8 @@
     <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Начать"
+            android:text="Start"
             android:id="@+id/button" android:layout_below="@+id/txtStatete" android:layout_centerHorizontal="true"
             android:layout_marginTop="72dp"
-            android:onClick="onProgressButton"/>
+            android:onClick="onShowMessage"/>
 </RelativeLayout>
