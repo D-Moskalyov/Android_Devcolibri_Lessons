@@ -25,12 +25,15 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        task = new MyAsyncTask();
+        //task = new MyAsyncTask(this);
+        task = MyAsyncTask.getInstance(this);
+        //task.execute();
     }
+
 
     public void onStartTask(View view) {
 
-        task.execute();
+//        task.execute();
 
     }
 
