@@ -10,13 +10,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.example.myapplication9.app.R;
 
+import com.example.myapplication9.app.asynctask.MyAsyncTask;
+
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 public class MainActivity extends Activity {
 
-    MyAsyncTask task;
+    private MyAsyncTask task;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,34 +28,19 @@ public class MainActivity extends Activity {
         task = new MyAsyncTask();
     }
 
-    public void onShowMessage(View view) throws ExecutionException, InterruptedException {
+    public void onStartTask(View view) {
 
         task.execute();
-        String text = null;
-        try {
-            text = task.get(2, TimeUnit.SECONDS);
-            Toast.makeText(MainActivity.this, text, Toast.LENGTH_SHORT).show();
-        } catch (TimeoutException e) {
-            Toast.makeText(MainActivity.this, "Not response", Toast.LENGTH_SHORT).show();
-        }
 
     }
 
-    class MyAsyncTask extends AsyncTask<Void, Void, String>{
+    public void onCancelTask(View view) {
 
-        private int progressBarValue = 0;
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-        }
-
-
-        @Override
-        protected String doInBackground(Void... params) {
-            SystemClock.sleep(3000);
-            return "Hello";
-        }
+        task.cancel(false);
     }
 
+    public void onStatus(View view) {
+
+        Toast.makeText(this, task.getStatus().toString(), Toast.LENGTH_SHORT).show();
+    }
 }
